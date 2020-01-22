@@ -15,9 +15,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginRepository {
 	WebDriver driver;
-	static String connectionHost = "jdbc:mysql://localhost:3306/seleniumpractice?autoReconnect=true&useSSL=false";
-	static String hostId = "root";
-	static String hostPassword = "Prakash@123";
+	private static final String connectionHostURL = "jdbc:mysql://localhost:3306/seleniumpractice?autoReconnect=true&useSSL=false";
+	private static final String hostUserId = "root";
+	private static final String hostPassword = "Prakash@123";
 
 	@FindBy(xpath = "//*[@class='signIn']")
 	WebElement loginButton;
@@ -43,7 +43,7 @@ public class LoginRepository {
 	}
 
 	public static ResultSet database() throws SQLException {
-		Connection con = DriverManager.getConnection(connectionHost, hostId, hostPassword);
+		Connection con = DriverManager.getConnection(connectionHostURL, hostUserId, hostPassword);
 		Statement s = con.createStatement();
 		ResultSet rs = s.executeQuery("select * from logincredential where logintype = 'User1'");
 		rs.next();

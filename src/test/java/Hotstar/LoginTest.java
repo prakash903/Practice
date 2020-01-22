@@ -6,11 +6,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import Hotstar.LoginRepository;
@@ -22,7 +19,7 @@ public class LoginTest {
 	public void loginTest() throws IOException, InterruptedException, SQLException {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		LoginRepository lr = new LoginRepository(driver);
 		driver.get(lr.url());
@@ -58,7 +55,7 @@ public class LoginTest {
 	}
 	@AfterTest
 	public void close() {
-		driver.quit();
+		driver.close();
 	}
 
 }
