@@ -25,7 +25,7 @@ public class LoginTest {
 		driver.get(lr.url());
 		lr.login().click();
 		lr.email().click();
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		lr.fb().click();
 		lr.fb().click();
 
@@ -42,7 +42,7 @@ public class LoginTest {
 		lr.fbLogin().click();
 
 		driver.switchTo().window(currentWindow);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		System.out.println(driver.getTitle());
 		try {
 			int windowSize = 1;
